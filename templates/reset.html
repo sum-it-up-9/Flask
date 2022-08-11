@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <style>
+
+    body{
+
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: url({{ url_for('static', filename='imags/bg.jpg') }});
+        background-size: cover;
+
+        background-repeat: no-repeat;
+        }
+        button, input {
+        display: block;
+        margin-bottom: 10px;
+        }
+        #password-reset-form
+        {
+        margin:auto;
+        margin-top:7%;
+        width: 350px;
+        height: 350px;
+        background: rgba(52, 73, 94, .9);
+        }
+        .formGroupp{
+  display: flex;
+  justify-content: center;
+     margin-top: 35%;
+}
+.formGroupp input{
+
+     border: 2px solid aliceblue;
+  width: 80%;
+  border-bottom: 2px solid white;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent;
+  color: white;
+}
+input:focus {
+  outline: none !important;
+  border-bottom: 2px solid rgb(91, 243, 131);
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+}
+::placeholder {
+  color: white;
+}
+.btn22{
+  padding: 10px;
+  position:relative;
+  top:20px;
+  width: 150px;
+  border-radius: 20px;
+  background-color: rgb(10, 136, 43);
+  border-style: none;
+  color: white;
+  font-weight: 600;
+}
+.btn22:hover{
+  background-color: rgba(10, 136, 43, 0.5);
+}
+.note{
+    color: beige;
+    font-weight: bold;
+    font-size: medium;
+    position: relative;
+    top: 70px;
+}
+.btn-container{
+position:relative;
+left:30%;
+
+}
+    </style>
+</head>
+<body>
+{% for message in get_flashed_messages() %}
+<div class="alert alert-warning alert-dismissible  show" role="alert" style="position:relative;top:60px;left:30%;width:40%">
+  <strong>{{ message }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<form id="password-reset-form" method="post" action="{{ url_for('reset') }}">
+  <div id="alert"></div>
+    <div class="formGroupp note">
+        Enter your email address in the below field!
+    </div>
+  <div class="formGroupp">
+ <input type="email" name="email" id="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"  title="Please Enter Valid Email Id"  required autocomplete="off"/>
+
+</div>
+<div class="btn-container">
+
+  <button type="submit" class="btn22">Reset password</button>
+    </div>
+</form>
+
+</body>
+</html>

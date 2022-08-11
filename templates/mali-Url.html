@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+    <style>
+        body{
+        background-image: url({{ url_for('static', filename='imags/bg1.png') }});
+        }
+        .btn-info {
+    color: #fff;
+    background-color: #356ba2 !important;
+    border-color: #46b8da;
+    }
+
+
+    </style>
+
+
+</head>
+<body>
+{% for message in get_flashed_messages() %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert" style="position:relative;top:60px;left:35%;width:40%;opacity:1">
+  <strong>{{ message }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+ <div class="one">
+        <h1 style="padding-top: 55px; text-align:center;padding-left:30px">Malicious URL</h1>
+        <p style="color:black;  margin-top:30px; padding-left:200px; font-size:17px;"> Capability to identify the list of URLs the user has given as input is malicious or it is safer to navigate through the same.</p>
+ </div>
+ <div class="3" style="position:absolute;left:450px;height:20px;margin-top:30px;">
+     <button type="button" class="btn btn-success"><a href="#singleurl" style="color:white">Check Single Url</a></button>    OR    <button type="button" class="btn btn-success">Upload list of urls</button>
+ </div>
+
+ <div class="two" style="position:relative; top:100px">
+     <form method="POST" action="/upload"
+							enctype="multipart/form-data">
+
+         <div  style="background-color: #356ba2;width: 900px;height:60px;margin-left: 200px; border-color:black; font-size:18px; color:yellow; text-align:center"><span style="position:relative;top:13px;">Choose a File that contains list of urls in a single column <span style="color:lightgrey;font-weight:bold">(Don't add name to column)</span></span></div>
+
+         <input type="file"  name='file' style="background-color: #356ba2;width: 900px;margin-left: 200px; margin-top:10px; height:60px; font-size:20px; color:white;" accept=".csv" required/>
+
+         <input type="submit" style="background-color: #356ba2;width: 900px; height:60px;margin-left: 200px;margin-top:10px; border-color:black; font-size:20px; color:white;" value="Upload">
+     </form></div>
+
+<div class="4" id="singleurl" style="position:relative; top:200px; height:500px">
+    <form method="POST" action="{{ url_for('predict') }}"
+							enctype="multipart/form-data">
+
+         <div  style="background-color: #356ba2;width: 900px;height:60px;margin-left: 200px; border:2px solid black; font-size:18px; color:yellow; text-align:center" ><span style="position:relative;top:13px;">Note: The URL must start with either http or https and
+then followed by :// and www. respectively </span></div>
+
+
+         <input type="url" name="url" style="color:black;width: 900px;margin-left: 200px; margin-top:10px; height:60px; font-size:20px; " id="url" placeholder="Paste url here" required/>
+
+         <input type="submit" style="background-color: #356ba2;width: 900px; height:60px;margin-left: 200px;margin-top:10px; border-color:black; font-size:20px; color:white;" value="Check Result">
+
+     </form></div>
+</div>
+</body>
+</html>
+{% endblock %}

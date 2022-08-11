@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+  body{
+  background: #092756;
+  position:relative;
+  top:0;
+  }
+  .container{
+  position:relative;
+  top:30px;
+  }
+  .text-container{
+  position:relative;
+  width:80%;
+  left:10%;
+  }
+
+  h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+  .green{
+  color:#00c853;
+  display:inline-block;
+  position:absolute;
+  top:-5px;
+  margin-left:8px;
+  }
+  img{
+  height:60px;
+  }
+  .tips-list{
+  position:relative;
+  margin-top:50px;
+  color:lightgrey;
+  line-height:1.6;
+  font-family: "Work Sans", sans-serif;
+  }
+  h3{
+  color:white;
+  text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <div class="text-container">
+        <img src="{{url_for('static', filename='imags/safe_icon.png')}}">
+        <h1 class="green">THE URL YOU ENTERED IS SAFE!!</h1>
+        <h3>Tips to protect you against malicious URLs.
+</h3>
+
+    	<P class="tips-list">
+            1. Always use a URL checker to see if a link is suspicious before clicking. Bookmark this one!<br><br>
+2. Check if a website is badly written or if the formatting and design are different from what you usually see from an organization.<br><br>
+3. Be suspicious of any messages that offer huge promotions, discounts, or free products.<br><br>
+4. Treat any communication that asks for your credentials and other personal information with extra caution.<br><br>
+
+        </P>
+
+
+        </div>
+
+
+
+ </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<style>
+body{
+background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+font-family: Open Sans, sans-serif;
+margin:5px;
+}
+p {
+position:relative;
+margin-top:40px;
+text-align:centre;
+font-size: 14px;
+font-weight: 300;
+line-height: 1.7;
+font-family: Open Sans, sans-serif;
+color:white;
+}
+.formGroup input{
+border: none;
+position:relative;
+width: 50%;
+left:20px;
+height:40px;
+border-bottom: 2px solid white;
+padding: 10px;
+padding-top:30px;
+margin-bottom: 20px;
+font-size: 14px;
+font-weight: bold;
+background-color: transparent;
+color: white;
+}
+input:focus {
+outline: none !important;
+border-bottom: 2px solid rgb(91, 243, 131);
+font-size: 17px;
+font-weight: bold;
+color: white;
+}
+::placeholder {
+color: white;
+}
+.intro{
+position:absolute;
+left:250px;
+width=100%;
+top:40px;
+
+}
+.one{
+padding-top:30px;
+
+}
+
+.show-history-form{
+display:inline-block;
+width:30%;
+position:relative;
+top:180px;
+left:70%;
+}
+
+.show-history{
+display:inline-block;
+width:30%;
+}
+
+.scale {
+    animation: zoom-in-out ease-in-out 2s infinite;
+}
+
+.rotate{
+ animation: rotating ease-in-out 2s infinite;
+}
+@keyframes zoom-in-out{
+  75%{
+      transform: scale(1.1);
+  }
+  100%{
+      transform: scale(1);
+  }
+}
+.scale:hover{
+font-weight:bold;
+background-color:grey;
+}
+</style>
+</head>
+<body>
+<div class="intro">
+    <h1 style="color:khaki;text-align:centre; position
+:relative;top:20px">Hey {{ USER[1] }}! </h1>
+    <p >This is your profile details, update whenever you want!</p>
+
+
+<form class="signUp" style="margin-top:40px;" action="{{ url_for('update') }}" method="post">
+    <div class="formGroup">
+        <div clss="txt" style="color:white;font-size:18px;">Username:<input type="text" id="username" name="username" placeholder="{{ USER[1] }}" autocomplete="off"></div>
+    </div>
+    <div class="formGroup">
+        <div clss="txt" style="color:white; font-size:18px;">Name:<input style="left:54px" type="text" id="name" name="name" placeholder="{{ USER[2] }}" autocomplete="off"></div>
+    </div>
+    <div class="formGroup">
+        <div clss="txt" style="color:white;font-size:18px;">Email:<input style="left:54px" type="email" id="email" name="email" placeholder="{{ USER[3] }}" autocomplete="off"></div>
+    </div>
+
+        <input type="submit" style="margin-top:20px;background-color: #337ab7;height:50px;width:100px" class="btn btn-primary"></input>
+
+</form>
+    </div>
+
+<form class="show-history-form" action="{{ url_for('show') }}">
+<div class="show-history">
+    <input type="submit" style="margin-top:20px;background-color: #337ab7;height:50px;width:120px;font-size:medium" class="btn btn-primary scale" value="Show History"></input>
+</div>
+</form>
+</body>
+</html>
+{% endblock %}

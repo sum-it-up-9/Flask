@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+  body{
+  background: #092756;
+  position:relative;
+  top:0;
+  }
+  .container{
+  position:relative;
+  top:30px;
+  }
+  .text-container{
+  position:relative;
+  width:80%;
+  left:10%;
+  }
+
+  h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+  .danger{
+  color:red;
+  display:inline-block;
+  position:absolute;
+  top:-5px;
+  margin-left:8px;
+  }
+  img{
+  height:60px;
+  }
+  .tips-list{
+  position:relative;
+  margin-top:50px;
+  color:lightgrey;
+  line-height:1.6;
+  font-family: "Work Sans", sans-serif;
+  }
+  h3{
+  color:white;
+  text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <div class="text-container">
+        <img src="{{url_for('static', filename='imags/malware.png')}}">
+        <h1 class="danger">THE URL YOU ENTERED IS MALICIOUS!!</h1>
+        <h3>Tips to protect you against malicious URLs.
+</h3>
+
+    	<P class="tips-list">
+            1. Don’t share any personal information.<br><br>
+2. If you entered any passwords or credit card info, change your passwords immediately and report the incidence to your credit card provider.<br><br>
+3. Install a mobile security app with anti-hacking or anti-phishing features to prevent further damage and to block any potential security breaches that the phishing attempt has already exploited.
+
+        </P>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Check Again</button>
+    </form>
+        </div>
+
+
+
+ </div>
+</body>
+
+{% endblock %}
