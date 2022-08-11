@@ -1,0 +1,94 @@
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.login .checkBoxx{
+  margin-top: 30px !important;
+}
+
+/* align items center vertically and horizontally  */
+.containerr{
+  display: flex;
+  justify-content: center;
+  align-items:center !important;
+  height: 100vh;
+}
+
+.btnn button {
+  padding: 3px;
+  margin: 30px 0px 40px 30px;
+  border-style: none;
+  background-color: transparent;
+  color: beige;
+  font-size: 18px;
+  font-weight: 550;
+}
+.formGroupp{
+  display: flex;
+  justify-content: center;
+}
+.formGroupp input{
+  border: none;
+  width: 80%;
+  border-bottom: 2px solid white;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent;
+  color: white;
+}
+input:focus {
+  outline: none !important;
+  border-bottom: 2px solid rgb(91, 243, 131);
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+}
+::placeholder {
+  color: white;
+}
+.checkBoxx{
+  display: flex;
+  justify-content: center;
+  margin: 10px!important;
+}
+
+#checkboxx{
+  margin-right: 10px;
+  height: 15px;
+  width: 15px;
+}
+.text{
+  color: rgb(199, 197, 197);
+  font-size: 13px;
+}
+.btn22{
+  padding: 10px;
+  position:relative;
+  top:20px;
+  width: 150px;
+  border-radius: 20px;
+  background-color: rgb(10, 136, 43);
+  border-style: none;
+  color: white;
+  font-weight: 600;
+}
+.btn22:hover{
+  background-color: rgba(10, 136, 43, 0.5);
+}
+.btnn button:hover{
+  border-bottom: 2px solid rgb(91, 243, 131);
+}
+
+.login{
+display:none;
+}
+
